@@ -393,20 +393,142 @@ int main()
 const int MAX_CONTACTS = 100;
 typedef struct {
     std::string name;
-    int phone[11];
+    std::string PhoneNum;
 }contact_t;
 
-void AddContact(int*contacts,int&size);
+void AddContact(contact_t*contacts,int&size);
+void UpdateContact(contact_t*contacts,int size);
+void SearchContact(contact_t*contacts,int size);
+void PrintContacts(contact_t*contacts,int size);
+void DeleteContacts(contact_t*contacts,int &size);
 int main()
 {
-
+    contact_t contacts[MAX_CONTACTS];
+    int choice;
+    int count = 0;
+    do{
+        std::cout << "\nAddress Book Menu\n";
+        std::cout << "1. Add Contact\n";
+        std::cout << "2. Update Contact\n";
+        std::cout << "3. Search Contact\n";
+        std::cout << "4. Print All Contacts\n";
+        std::cout << "5. Delete Contact\n";
+        std::cout << "6. Exit\n";
+        std::cout << "Enter choice: ";
+        std::cin >> choice;
+        switch (choice) {
+            case 1: AddContact(contacts, count); break;
+            case 2: UpdateContact(contacts, count); break;
+            case 3: SearchContact(contacts, count); break;
+            case 4: PrintContacts(contacts, count); break;
+            case 5: DeleteContacts(contacts, count);break;
+            case 6: std::cout << "Exiting program...\n"; break;
+            default: std::cout << "Invalid choice! Try again.\n";
+        }
+    }while(choice!=6);
 }
-void AddContact(int*contacts,int&size)
+void AddContact(contact_t*contacts,int&size)
 {
     if(size>MAX_CONTACTS)
     {
         std::cout << "Address book is full!\n";
         return ;
     }
+    std::cout<<"Enter your name: ";
+    std::cin.ignore();  //Clears any leftover newline characters from previous inputs.
+    std::getline(std::cin,contacts[size].name);
+    std::cout<<"Enter phone number: ";
+    std::getline(std::cin,contacts[size].PhoneNum);
+    size++;
+    std::cout << "Contact added successfully!\n";
+}
 
+void UpdateContact(contact_t*contacts,int size)
+{
+    std::string SearchName;
+    int i,Flag=0;
+    std::cout<<"Enter Your name: ";
+    std::cin.ignore();
+    std::getline(std::cin,SearchName);
+    for(i=0;i<size;i++)
+    {
+        if(SearchName==contacts[i].name)
+        {
+            std::cout<<"Enter new phone number: ";
+            std::getline(std::cin,contacts[i].PhoneNum);
+            std::cout << "Contact updated successfully!\n";
+            Flag=1;
+            break;
+        }
+    }
+    if(Flag==0)
+    {
+        std::cout << "Contact not found.\n";
+    }
+}
+void SearchContact(contact_t*contacts,int size)
+{
+    std::string SearchName;
+    int i,flag=0;
+    std::cout<<"Enter the name to search: ";
+    std::cin.ignore();
+    std::getline(std::cin,SearchName);
+    for(i=0;i<size;i++)
+    {
+        if(SearchName==contacts[i].name)
+        {
+            std::cout << "Contact found:\n";
+            std::cout << "Name: " << contacts[i].name << "\n";
+            std::cout << "Phone: " << contacts[i].PhoneNum << "\n";
+            flag=1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        std::cout << "Contact not found.\n";
+    }
+}
+
+void PrintContacts(contact_t*contacts,int size)
+{
+    int i;
+    if(size==0)
+    {
+        std::cout<<"No contacts avilable.\n";
+    }
+    else
+    {
+        std::cout << "Contact List:\n";
+        for(i=0;i<size;i++)
+        {
+            std::cout<<i+1<<"-Name:"<<contacts[i].name<<", Phone:"<<contacts[i].PhoneNum<<std::endl;
+        }
+    }
+}
+
+void DeleteContacts(contact_t* contacts, int& size)
+{
+    std::string SearchName;
+    std::cout << "Enter the name to delete: ";
+    std::cin.ignore();
+    std::getline(std::cin, SearchName);
+
+    bool found = false;
+    for (int i = 0; i < size; i++) {
+        if (contacts[i].name == SearchName) {
+            // Shift contacts left to overwrite the deleted one
+            for (int j = i; j < size - 1; j++) {
+                contacts[j] = contacts[j + 1];
+            }
+            size--; // Reduce size after deletion
+            std::cout << "Contact deleted successfully!\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        std::cout << "Contact not found.\n";
+    }
 }
