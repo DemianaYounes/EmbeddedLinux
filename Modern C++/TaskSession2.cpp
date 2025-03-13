@@ -4,7 +4,7 @@
 
 /**************************Task1************************* */
 /*C style */
-/*int FindMaxNum(int*arr,int size);
+int FindMaxNum(int*arr,int size);
 int main()
 {
     int arr[5]={10,4,11,9,17};
@@ -26,9 +26,9 @@ int FindMaxNum(int*arr,int size)
         }
     }
     return Max;
-}*/
+}
 /*C++ style */
-/*int FindMaxNum(const int*arr,const int size);
+int FindMaxNum(const int*arr,const int size);
 int main()
 {
     int arr[5]={100,4,110,9,17};
@@ -38,12 +38,12 @@ int main()
 int FindMaxNum(const int*arr,const int size){
     // Using ranges to find the maximum element
     return *std::max_element(arr, arr + size);
-}*/
+}
 
 
 /**************************Task2************************* */
 //C style
-/*int SearchForNumber(const int*Copy_u32Arr,const int Copy_u32Siza,const int Copy_u32SearchNum);
+int SearchForNumber(const int*Copy_u32Arr,const int Copy_u32Siza,const int Copy_u32SearchNum);
 int main()
 {
     int Local_s32arr[5]={10,4,11,9,17};
@@ -72,8 +72,8 @@ int SearchForNumber(const int*Copy_s32Arr,const int Copy_s32Siza,const int Copy_
         }
     }
     return Local_s32Index;
-}*/
-/*int SearchForNumber(int*Copy_u32Arr,const int Copy_u32Siza,const int Copy_u32SearchNum);
+}
+int SearchForNumber(int*Copy_u32Arr,const int Copy_u32Siza,const int Copy_u32SearchNum);
 int main()
 {
     int Local_s32arr[5]={10,4,11,9,17};
@@ -95,11 +95,11 @@ int SearchForNumber(int*Copy_u32Arr,const int Copy_u32Siza,const int Copy_u32Sea
     int Local_s32Index=-1;
     int*found=std::find(Copy_u32Arr,Copy_u32Arr+Copy_u32Siza,Copy_u32SearchNum);
     return (found!=Copy_u32Arr+Copy_u32Siza?(found-Copy_u32Arr):-1);
-}*/
+}
 
 /**************************Task3************************* */
 //C style
-/*void DeletNum(int*arr,int size,int DelNum);
+void DeletNum(int*arr,int size,int DelNum);
 void SwapTwoNum(int*num1,int*num2);
 void PrintArray(int*arr,int size);
 int main()
@@ -138,10 +138,10 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 //C++ Style
-/*int DeletNum(int*arr,int size,int DelNum);
+int DeletNum(int*arr,int size,int DelNum);
 void PrintArray(int*arr,int size);
 int main()
 {
@@ -165,11 +165,11 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 /**************************Task4************************* */
 //C style
-/*int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
+int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
 void PrintArray(int*arr,int size);
 int main()
 {
@@ -204,10 +204,10 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 //C++ Style
-/*int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
+int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
 void PrintArray(int*arr,int size);
 int main()
 {
@@ -242,10 +242,10 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 //C++ Style
-/*int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
+int* MergeTwoArray(int*arr1,int size1,int*arr2,int size2);
 void PrintArray(int*arr,int size);
 int main()
 {
@@ -270,11 +270,11 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 /**************************Task5************************* */
 //C & C++ Style
-/*void EvenAndOddNumbers(int*arr,int size,int*EvenArr,int*OddArr,int*EvenSize,int*OddSize);
+void EvenAndOddNumbers(int*arr,int size,int*EvenArr,int*OddArr,int*EvenSize,int*OddSize);
 void PrintArray(int*arr,int size);
 int main()
 {
@@ -313,13 +313,13 @@ void PrintArray(int*arr,int size)
         std::cout<<arr[i]<<"  ";
     }
     std::cout<<std::endl;
-}*/
+}
 
 
 
 /**************************Task6************************* */
 
-/*int main()
+int main()
 {
     int res;
     //By using auto method
@@ -342,10 +342,10 @@ void PrintArray(int*arr,int size)
         return num*num;
     }(3);
     std::cout<<res<<std::endl;
-}*/
+}
 
 /**************************Task7************************* */
-/*void PrintArray(int*arr,int size)
+void PrintArray(int*arr,int size)
 {
     int i;
     for(i=0;i<size;i++)
@@ -386,7 +386,7 @@ int main()
     //c++ style
     std::sort(arr,arr+size,[](int a,int b){return a<b;} );
     PrintArray(arr,size);
-}*/
+}
 
 
 /**************************Task8**************************/
